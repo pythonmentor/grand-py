@@ -10,7 +10,7 @@ class TestGrandpy:
             return "Tour Eiffel"
 
         def mock_getting_sorted_informations(clean_input):
-            return ["Tour Eiffel", [48.85824, 2.2945]]
+            return ["Tour Eiffel", [48.85824, 2.2945], None, "adresse de la Tour Eiffel"]
 
         def mock_article_id_from_sorted_raw_info(gps_coordinate):
             return 4641538
@@ -58,19 +58,18 @@ class TestGrandpy:
         test_return = Grandpy("Bonjour papy, ou se trouve la Tour Eiffel ?")
 
         assert test_return.grandpy() == {
+            "address": "adresse de la Tour Eiffel",
             "title": "Tour Eiffel",
-            "gps": {
-                "latitude": 48.85824,
-                "longitude": 2.2945
-            },
-            "article_extract": "Le Jules Verne est un restaurant parisien "
+            "latitude": 48.85824,
+            "longitude": 2.2945,
+            "mapapi": "3x_folrFxFldUXawwtDvrOxg4F2T5BFF3P_Rp0hRp7c",
+            "articleextract": "Le Jules Verne est un restaurant parisien "
             "situé au deuxième étage de la tour Eiffel et spécialisé en "
             "cuisine française classique. Le chef Frédéric Anton est aux "
             "manettes depuis juillet 2019. Il succède à Louis Grondard (1983),"
             " Alain Reix (1992) et Alain Ducasse avec Sodexo (2007).\nLe décor"
             " a été réalisé…",
-            "url_article": "https://fr.wikipedia.org/wiki/Le_Jules_Verne",
-            "error": "Je suis un peu dur de la feuille, peux tu reformuler ?",
-            "grandpy-answer": "Tour Eiffel? Bien sur, je te montre une carte, "
-            "c'est plus parlant."
+            "urlarticle": "https://fr.wikipedia.org/wiki/Le_Jules_Verne",
+            "grandpyanecdote": "Tiens d'ailleurs, j'ai une anecdote interessante:",
+            "grandpyanswer": "Tour Eiffel? Bien sur mon enfant, voici l'adresse: adresse de la Tour Eiffel",
         }
